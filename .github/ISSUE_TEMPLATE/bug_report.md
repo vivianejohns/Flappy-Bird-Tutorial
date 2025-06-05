@@ -23,12 +23,11 @@ A clear and concise description of what you expected to happen.
 **Screenshots**
 If applicable, add screenshots to help explain your problem.
 
-**Hard + Software (please complete the following information):**
+**Hardware & Software (please complete the following information):**
  - OS: [e.g. iOS]
- - Browser [e.g. chrome, safari]
- - Unity Version [e.g. 22]
+ - Browser: [e.g. chrome, safari]
+ - Software Version: [e.g. 1.2.3]
  - Device: [e.g. iPhone6]
  - IDE: [e.g. VSCode]
-
 **Additional context**
 Add any other context about the problem here.
