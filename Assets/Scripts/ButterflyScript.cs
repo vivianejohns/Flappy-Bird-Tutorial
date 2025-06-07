@@ -9,7 +9,17 @@ public class ButterflyScript : MonoBehaviour
 
     void Start()
     {
-        logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicManagerScript>();
+        GameObject logicObject = GameObject.FindGameObjectWithTag("Logic");
+        if (logicObject != null)
+        {
+            logic = logicObject.GetComponent<LogicManagerScript>();
+        }
+        if (logic == null)
+        {
+            Debug.LogError(
+                "LogicManagerScript not found! Make sure there's a GameObject tagged 'Logic' with LogicManagerScript component."
+            );
+        }
     }
 
     void Update()
@@ -22,7 +32,10 @@ public class ButterflyScript : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        logic.gameOver();
-        butterflyAlive = false;
+        if (logic != null)
+        {
+            logic.GameOver();
+            butterflyAlive = false;
+        }
     }
 }

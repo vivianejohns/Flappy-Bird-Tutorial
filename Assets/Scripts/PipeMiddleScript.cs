@@ -11,8 +11,8 @@ public class PipeMiddleScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        // nur hochzählen, wenn die pipe middle auch tatsächlihc mit dem schmetterling collidet ist und nicht mit einem anderen gameObject
-        if (collision.gameObject.layer == 3)
+        // only count up when collision is with butterfly and not a different gameobject
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Butterfly"))
         {
             logic.addScore(1);
         }

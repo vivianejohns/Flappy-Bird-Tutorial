@@ -9,7 +9,13 @@ public class PipeSpawnScript : MonoBehaviour
 
     void Start()
     {
-        spawnPipe();    
+        if (pipe == null)
+        {
+            Debug.LogError("Pipe prefab is not assigned in " + gameObject.name);
+            enabled = false;
+            return;
+        }
+        SpawnPipe();
     }
 
     void Update()
@@ -20,16 +26,20 @@ public class PipeSpawnScript : MonoBehaviour
         }
         else
         {
-            spawnPipe();
+            SpawnPipe();
             timer = 0;
         }
     }
 
-    void spawnPipe()
+    void SpawnPipe()
     {
         float lowestPoint = transform.position.y - heightOffset;
         float highestPoint = transform.position.y + heightOffset;
 
-        Instantiate(pipe, new Vector3(transform.position.x, Random.Range(lowestPoint, highestPoint), 0), transform.rotation);
+        Instantiate(
+            pipe,
+            new Vector3(transform.position.x, Random.Range(lowestPoint, highestPoint), 0),
+            transform.rotation
+        );
     }
 }
